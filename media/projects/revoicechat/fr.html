@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <base target="_blank">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ReVoiceChat</title>
+    <style>
+        :root {
+            --bg: #fffaf4; --text: #2b2522; --muted: #66594f; --faint: #85776c; --accent: #b5532f;
+            --line: rgba(43, 37, 34, .12); --tag-bg: rgba(79, 125, 112, .14); --tag-text: #4f7d70;
+            color-scheme: light;
+        }
+        /* Le portfolio indique son ambiance sur <html data-theme="day|night"> */
+        :root[data-theme="night"] {
+            --bg: #181922; --text: #f1ece6; --muted: #bcb2a9; --faint: #958b83; --accent: #f08a5d;
+            --line: rgba(255, 255, 255, .12); --tag-bg: rgba(143, 193, 178, .16); --tag-text: #8fc1b2;
+            color-scheme: dark;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 2rem 2.5rem 3rem; font: 1rem/1.6 system-ui, sans-serif; color: var(--muted); background: var(--bg); }
+        .eyebrow { margin: 0 0 .5rem; font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+        h1 { margin: 0 0 .75rem; font-size: 2.2rem; line-height: 1.15; letter-spacing: -.02em; color: var(--text); }
+        h2 { margin: 2rem 0 .75rem; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+        h3 { margin: 1.25rem 0 .25rem; font-size: 1.05rem; color: var(--text); }
+        h3 + p { margin-top: 0; }
+        .lead { margin-top: 0; font-size: 1.2rem; }
+        .links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 1rem 0 0; }
+        figure { margin: 1.5rem 0; }
+        figcaption { margin-top: .5rem; font-size: .85rem; line-height: 1.4; color: var(--faint); }
+        img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: .75rem; }
+        ul { padding-left: 1.25rem; }
+        li + li { margin-top: .35rem; }
+        a { font-weight: 600; color: var(--accent); }
+        .tags { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; list-style: none; }
+        .tags li { margin: 0; padding: .2rem .8rem; font-size: .85rem; font-weight: 500; color: var(--tag-text); background: var(--tag-bg); border-radius: 999px; }
+    </style>
+</head>
+<body>
+    <p class="eyebrow">2026 · Site vitrine et CMS</p>
+    <h1>ReVoiceChat</h1>
+    <p class="lead">Le site de présentation de ReVoiceChat, une alternative open source à Discord, produit par un CMS que j’ai développé.</p>
+    <p class="links"><a href="https://www.revoicechat.fr/">Voir le projet</a></p>
+    <figure>
+        <img src="images/cover.webp" alt="Accueil du site de ReVoiceChat, avec un aperçu de l’application de chat." width="1600" height="900">
+    </figure>
+    <p>ReVoiceChat est une application de chat et d’appels vocaux open source, que chacun peut héberger sur son propre serveur. J’ai conçu et développé son site de présentation : arguments clés, partage d’écran simultané, comparatif avec Discord et Slack.</p>
+    <p>Le site est généré par rl-site-builder, un CMS que j’ai créé : un backoffice React pour éditer les pages, les menus, le référencement, les médias et les couleurs, puis une compilation qui produit un site en HTML statique, mis en forme avec Tailwind CSS.</p>
+    <h2>Démarche</h2>
+    <h3>Le besoin</h3>
+    <p>Il fallait un site dont les textes se modifient facilement et rapidement, et dont l’apparence puisse évoluer vite au besoin.</p>
+    <h3>Un premier essai avec ChaiBuilder</h3>
+    <p>Le projet a commencé début 2026 avec un fork de <a href="https://github.com/chaibuilder">ChaiBuilder</a>, un constructeur visuel de sites open source. Sa mise en production a buté sur l’hébergeur, qui bloque certains ports entrants et sortants dont l’outil avait besoin : le site a donc été exporté en statique pour pouvoir être mis en ligne.</p>
+    <h3>Un CMS sur mesure</h3>
+    <p>À l’automne 2026, j’ai décidé de refaire le projet avec un outil plus adapté à ce que je souhaitais, qui serve aussi de base à d’autres sites. rl-site-builder est né pour résoudre ce problème : il compile automatiquement le site statique, en reprenant d’abord l’apparence du site existant. Certains composants ont ensuite été améliorés graphiquement, sans bouleverser l’architecture.</p>
+    <h3>Un backoffice hors ligne</h3>
+    <p>Le backoffice n’est pas en ligne, ce qui évite l’exploitation de ses éventuelles failles, et le site publié est entièrement statique : il n’a besoin d’aucune base de données pour fonctionner.</p>
+    <h2>Points forts</h2>
+    <ul>
+        <li>Backoffice React avec éditeur de texte riche (Tiptap) et aperçu en direct des pages.</li>
+        <li>Site entièrement statique en production : pages dans chaque langue, sitemap, robots.txt et page 404 générés à la compilation.</li>
+        <li>Données stockées avec le module SQLite intégré à Node.js, sans dépendance native à compiler.</li>
+        <li>Mise en ligne automatique : GitHub Actions publie le site compilé à chaque modification.</li>
+    </ul>
+    <h2>Technologies</h2>
+    <ul class="tags">
+        <li>React</li>
+        <li>TypeScript</li>
+        <li>Node.js</li>
+        <li>Express</li>
+        <li>Tailwind CSS</li>
+        <li>SQLite</li>
+        <li>Vite</li>
+        <li>GitHub Actions</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <base target="_blank">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio 3D</title>
+    <style>
+        :root {
+            --bg: #fffaf4; --text: #2b2522; --muted: #66594f; --faint: #85776c; --accent: #b5532f;
+            --line: rgba(43, 37, 34, .12); --tag-bg: rgba(79, 125, 112, .14); --tag-text: #4f7d70;
+            color-scheme: light;
+        }
+        /* Le portfolio indique son ambiance sur <html data-theme="day|night"> */
+        :root[data-theme="night"] {
+            --bg: #181922; --text: #f1ece6; --muted: #bcb2a9; --faint: #958b83; --accent: #f08a5d;
+            --line: rgba(255, 255, 255, .12); --tag-bg: rgba(143, 193, 178, .16); --tag-text: #8fc1b2;
+            color-scheme: dark;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 2rem 2.5rem 3rem; font: 1rem/1.6 system-ui, sans-serif; color: var(--muted); background: var(--bg); }
+        .eyebrow { margin: 0 0 .5rem; font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+        h1 { margin: 0 0 .75rem; font-size: 2.2rem; line-height: 1.15; letter-spacing: -.02em; color: var(--text); }
+        h2 { margin: 2rem 0 .75rem; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+        h3 { margin: 1.25rem 0 .25rem; font-size: 1.05rem; color: var(--text); }
+        h3 + p { margin-top: 0; }
+        .lead { margin-top: 0; font-size: 1.2rem; }
+        .links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 1rem 0 0; }
+        figure { margin: 1.5rem 0; }
+        figcaption { margin-top: .5rem; font-size: .85rem; line-height: 1.4; color: var(--faint); }
+        img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: .75rem; }
+        ul { padding-left: 1.25rem; }
+        li + li { margin-top: .35rem; }
+        a { font-weight: 600; color: var(--accent); }
+        .tags { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; list-style: none; }
+        .tags li { margin: 0; padding: .2rem .8rem; font-size: .85rem; font-weight: 500; color: var(--tag-text); background: var(--tag-bg); border-radius: 999px; }
+    </style>
+</head>
+<body>
+    <p class="eyebrow">2026 · Conception et développement</p>
+    <h1>Portfolio 3D</h1>
+    <p class="lead">Mon portfolio sous la forme d’un bureau en 3D, à explorer au clavier, à la souris ou au toucher.</p>
+    <p class="links"><a href="http://localhost/projets/portfolio">Voir le projet</a></p>
+    <figure>
+        <img src="images/cover.webp" alt="Le bureau en 3D du portfolio : ordinateur, écrans, étagères d’objets, lampe et plantes." width="1600" height="900">
+    </figure>
+    <p>Au chargement, l’ordinateur s’allume puis l’écran affiche mon profil. Chaque objet du bureau ouvre un contenu : les projets sur les étagères, un terminal sur le second écran, le contact sur le smartphone, le CV à l’imprimante et l’ambiance jour ou nuit avec la lampe.</p>
+    <p>Toute la scène est modélisée en code, sans modèle 3D ni texture à télécharger. Son contenu est généré à partir de ce site.</p>
+    <h2>Démarche</h2>
+    <h3>L’idée</h3>
+    <p>L’idée est venue en découvrant des projets similaires, des CRM d’entreprise en 3D : ils m’ont donné envie de faire une version de mon portfolio en 3D.</p>
+    <h3>Tout voir en un clic</h3>
+    <p>Le but était de pouvoir tout voir en un clic : chaque objet du bureau ouvre directement son contenu, qu’il s’agisse du profil, des projets, du parcours, du contact ou du CV.</p>
+    <h2>Points forts</h2>
+    <ul>
+        <li>Scène WebGL avec Three.js, et contenus des écrans en vrai HTML : sélectionnables, cliquables et lus par les lecteurs d’écran.</li>
+        <li>Qualité de rendu adaptée à l’appareil, puis abaissée automatiquement si l’animation passe sous 45 images par seconde.</li>
+        <li>Navigation complète au clavier, annonces vocales, mouvement réduit respecté et version statique pour les navigateurs sans WebGL.</li>
+        <li>Terminal interactif avec ses propres commandes, et quelques secrets à découvrir.</li>
+    </ul>
+    <h2>Technologies</h2>
+    <ul class="tags">
+        <li>Three.js</li>
+        <li>GSAP</li>
+        <li>JavaScript</li>
+        <li>Vite</li>
+        <li>Sass</li>
+    </ul>
+</body>
+</html>

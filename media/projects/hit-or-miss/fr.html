@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <base target="_blank">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hit or Miss</title>
+    <style>
+        :root {
+            --bg: #fffaf4; --text: #2b2522; --muted: #66594f; --faint: #85776c; --accent: #b5532f;
+            --line: rgba(43, 37, 34, .12); --tag-bg: rgba(79, 125, 112, .14); --tag-text: #4f7d70;
+            color-scheme: light;
+        }
+        /* Le portfolio indique son ambiance sur <html data-theme="day|night"> */
+        :root[data-theme="night"] {
+            --bg: #181922; --text: #f1ece6; --muted: #bcb2a9; --faint: #958b83; --accent: #f08a5d;
+            --line: rgba(255, 255, 255, .12); --tag-bg: rgba(143, 193, 178, .16); --tag-text: #8fc1b2;
+            color-scheme: dark;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 2rem 2.5rem 3rem; font: 1rem/1.6 system-ui, sans-serif; color: var(--muted); background: var(--bg); }
+        .eyebrow { margin: 0 0 .5rem; font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+        h1 { margin: 0 0 .75rem; font-size: 2.2rem; line-height: 1.15; letter-spacing: -.02em; color: var(--text); }
+        h2 { margin: 2rem 0 .75rem; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+        h3 { margin: 1.25rem 0 .25rem; font-size: 1.05rem; color: var(--text); }
+        h3 + p { margin-top: 0; }
+        .lead { margin-top: 0; font-size: 1.2rem; }
+        .links { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin: 1rem 0 0; }
+        figure { margin: 1.5rem 0; }
+        figcaption { margin-top: .5rem; font-size: .85rem; line-height: 1.4; color: var(--faint); }
+        img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: .75rem; }
+        ul { padding-left: 1.25rem; }
+        li + li { margin-top: .35rem; }
+        a { font-weight: 600; color: var(--accent); }
+        .tags { display: flex; flex-wrap: wrap; gap: .5rem; padding: 0; list-style: none; }
+        .tags li { margin: 0; padding: .2rem .8rem; font-size: .85rem; font-weight: 500; color: var(--tag-text); background: var(--tag-bg); border-radius: 999px; }
+    </style>
+</head>
+<body>
+    <p class="eyebrow">2026 · Conception et développement</p>
+    <h1>Hit or Miss</h1>
+    <p class="lead">Un quiz musical multijoueur pour les soirées : une seconde d’un morceau pour trouver le titre, puis trois, puis dix.</p>
+    <p class="links"><a href="https://hit-or-miss.renardleo.fr/">Voir le projet</a></p>
+    <figure>
+        <img src="images/cover.webp" alt="Écran-titre de Hit or Miss en thème sombre : le logo au disque vinyle et l’invitation « Cliquez pour commencer », qui mène au menu." width="1600" height="900">
+    </figure>
+    <p>Hit or Miss est un jeu télévisé musical à jouer entre amis. À chaque manche, il faut reconnaître un morceau à partir d’un extrait d’une seconde, qui s’allonge à trois puis à dix secondes : plus la réponse est rapide, plus elle rapporte de points.</p>
+    <p>J’ai conçu et développé l’ensemble du projet, du moteur de jeu en temps réel à la bibliothèque musicale, jusqu’à sa mise en ligne.</p>
+    <h2>Démarche</h2>
+    <h3>L’idée</h3>
+    <p>Le jeu part de « Devine la chanson », auquel j’ai ajouté le multijoueur pour pouvoir y jouer en soirée. Un appareil principal sert d’écran à l’émission. Un téléphone peut servir de télécommande, pour passer les manches et valider à la main certaines réponses libres. Chaque joueur rejoint ensuite la partie en scannant un QR code ou en saisissant le code de la partie, sans créer de compte.</p>
+    <figure>
+        <img src="images/menu.webp" alt="Menu de Hit or Miss en thème sombre : à gauche « Créer une partie », à lancer sur l’écran que tout le monde voit, à droite « Rejoindre une partie » avec le champ du code à six chiffres." width="1600" height="900">
+        <figcaption>Le menu : la partie se crée sur l’écran principal, puis chaque joueur la rejoint avec son code ou en scannant le QR code.</figcaption>
+    </figure>
+    <h3>Le choix de React</h3>
+    <p>Un jeu doit répondre sans délai. J’ai choisi React pour son interface réactive, qui se met à jour dès qu’un joueur répond, avec Socket.IO pour transmettre en temps réel l’état de la partie à l’écran principal, à la télécommande et à chaque téléphone.</p>
+    <h3>Le logo</h3>
+    <p>Pour l’identité, je suis parti de l’univers des jeux télévisés et des quiz musicaux. Le logo associe un disque vinyle au nom « HIT — or — MISS », et son animation de chargement reprend la mécanique du jeu : un arc s’allonge d’une à trois, puis à dix secondes pendant que le disque tourne.</p>
+    <figure>
+        <img src="images/chargement.webp" alt="Trois états de l’animation de chargement : autour du disque vinyle, un arc violet couvre un dixième du cercle à 1 s, près d’un tiers à 3 s, puis presque tout le cercle à 10 s." width="1600" height="900">
+        <figcaption>L’animation de chargement : l’arc grandit comme l’extrait, d’une à trois, puis à dix secondes.</figcaption>
+    </figure>
+    <h3>Trois identités</h3>
+    <p>Le logo se décline en trois identités complètes, violet, corail et menthe, chacune en version claire et sombre, avec favicons et écran de présentation. L’identité se choisit à la compilation, et les couleurs du texte et des graphiques ont été ajustées pour rester lisibles, y compris par les personnes daltoniennes.</p>
+    <figure>
+        <img src="images/identites.webp" alt="Le logo Hit or Miss décliné six fois : en violet, corail et menthe, sur fond clair en haut et sur fond sombre en bas." width="1600" height="900">
+        <figcaption>Le logo dans les trois identités, en version claire puis sombre.</figcaption>
+    </figure>
+    <h3>Les présentateurs</h3>
+    <p>Pour incarner l’émission, j’ai imaginé des présentateurs en 3D. Un animateur et une animatrice partagent le même squelette et les mêmes animations, avec cinq teintes de peau et cinq couleurs de cheveux, et l’un d’eux est tiré au sort à chaque partie. S’y ajoute mon sosie, modelé d’après des photos.</p>
+    <p>Ils sont entièrement générés par code, en style cartoon, sans modèle 3D à télécharger : ils saluent, présentent chaque extrait, dansent pendant l’écoute et réagissent aux bonnes comme aux mauvaises réponses. Décoratifs, ils ne font que doubler ce que le texte et les lecteurs d’écran annoncent déjà.</p>
+    <figure>
+        <img src="images/presentateurs.webp" alt="Cinq présentateurs cartoon en veste violette et nœud papillon jaune, micro en main : deux animatrices et deux animateurs aux teintes de peau et couleurs de cheveux différentes, avec au centre le sosie du créateur." width="1600" height="900">
+        <figcaption>Quelques tirages possibles, rendus avec le code du jeu. Au centre, mon sosie.</figcaption>
+    </figure>
+    <h2>Points forts</h2>
+    <ul>
+        <li>Partie synchronisée en temps réel entre l’écran partagé, la télécommande de l’animateur et les téléphones des joueurs (Socket.IO).</li>
+        <li>Extraits découpés pendant la partie avec ffmpeg, depuis un point aléatoire, et son lancé au même instant sur tous les téléphones.</li>
+        <li>Bibliothèque musicale : import de morceaux, volume harmonisé (EBU R128), playlists publiques ou privées.</li>
+        <li>Tests unitaires (Vitest) et parties de bout en bout sur plusieurs navigateurs (Playwright), avec contrôle d’accessibilité WCAG 2.2 AA.</li>
+    </ul>
+    <h2>Technologies</h2>
+    <ul class="tags">
+        <li>TypeScript</li>
+        <li>React</li>
+        <li>Fastify</li>
+        <li>Socket.IO</li>
+        <li>Three.js</li>
+        <li>SQLite</li>
+        <li>Drizzle ORM</li>
+        <li>ffmpeg</li>
+        <li>Sass</li>
+        <li>Playwright</li>
+    </ul>
+</body>
+</html>
